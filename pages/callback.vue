@@ -20,8 +20,7 @@ export default {
       //ユーザー情報を取得
       await this.$strapi.fetchUser();
 
-      // Useful if you have a middleware that sets the `redirect` cookie when accessing a private page
-      window.location.href = "/dashboard/top";
+      window.location.href = "/";
       //redirect(this.$strapi.$cookies.get("redirect") || "/dashboard/top");
     } catch (e) {
       //エラーが発生したらconsoleに吐き出しリダイレクト

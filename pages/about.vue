@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all">
     <div class="wrapper">
       <div class="movie">MITAPRO映画祭</div>
       <div class="job">統括プロデューサー</div>
@@ -8,8 +8,6 @@
       <div class="name">S3 Junsei Miyazawa</div>
       <div class="job">開発</div>
       <div class="name">J2 Kaoru Nishihata</div>
-      <div class="job">開発</div>
-      <div class="name">J2 Yuki Takahashi</div>
       <div class="job">主催</div>
       <div class="name">MITAPRO</div>
     </div>
@@ -31,12 +29,11 @@ export default {
   box-sizing: border-box;
 }
 
-html,
-body {
+.all {
   height: 100%;
 }
 
-body {
+.all {
   background: radial-gradient(ellipse at top left, #334455 0%, #112233 100%);
   overflow: hidden;
 }
