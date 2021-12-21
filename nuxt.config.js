@@ -1,0 +1,251 @@
+import colors from "vuetify/es5/util/colors";
+import { Integrations as TracingIntegrations } from "@sentry/tracing";
+import * as Sentry from "@sentry/browser";
+const environment =
+  process.env.currentenv || process.env.NODE_ENV || "production";
+const envSettings = require(`./env.${environment}.js`);
+
+export default {
+  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
+  ssr: false,
+
+  // Target (https://go.nuxtjs.dev/config-target)
+  target: "static",
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
+  head: {
+    titleTemplate: "%s - MITAPro",
+    title: "MITAPro",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" }
+    ],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "preconnect", href: "https://mitalink.raspi0124.dev" },
+      { rel: "preconnect", href: "https://storage.googleapis.com" }
+      /*{
+        rel: "Stylesheet",
+        href:
+          "https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css",
+        defer: true
+      }*/
+    ]
+  },
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
+  css: ["@/assets/common.css"],
+  env: envSettings,
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  plugins: [
+    { src: "~plugins/quill.js", ssr: false },
+    { src: "~plugins/sanitize.js" },
+    { src: "~plugins/axios.js" },
+    { src: "~plugins/sentry-plus.js" },
+    { src: "~plugins/strapi.js" }
+    /*{
+      src: "~plugins/ga.js",
+      mode: "client"
+    }*/
+    //  { src: "~plugins/lazyload.js" }
+  ],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: true,
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  buildModules: [
+    // https://go.nuxtjs.dev/vuetify
+    "@nuxtjs/vuetify"
+  ],
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
+  modules: [
+    // https://go.nuxtjs.dev/axios
+    "@nuxtjs/axios",
+    "@nuxtjs/onesignal",
+    // https://go.nuxtjs.dev/pwa
+    "@nuxtjs/pwa",
+    // https://go.nuxtjs.dev/content
+    //"@nuxt/content",
+    "@nuxtjs/auth",
+    "nuxt-imagemin",
+    "@nuxtjs/sentry",
+    "@nuxtjs/strapi",
+    "@nuxtjs/toast",
+    //Googleの検索結果等に載らないようにするRobots.txtを生成するモジュール
+    "@nuxtjs/robots",
+    "@nuxtjs/google-gtag"
+  ],
+
+  /*
+   ** @nuxtjs/pwa Configuration
+   ** https://github.com/nuxt-community/pwa-module
+   */
+  pwa: {
+    source: "~/static/icon.png"
+  },
+  oneSignal: {
+    init: {
+      appId: "e2651f5d-f425-49b3-9ea7-1fb4df9193af",
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: false
+      },
+      notifyButton: {
+        enable: true
+      }
+    }
+  },
+  manifest: {
+    name: "MITAPro",
+    lang: "ja",
+    short_name: "MITAPro",
+    title: "MITAPro",
+    "og:title": "MITAPro",
+    //新しいPWAインストールプロンプト用 スクリーンショットが用意出来たら入れること
+    screenshots: [
+      {
+        src: "",
+        type: "",
+        sizes: ""
+      }
+    ],
+    description: "MITAPro, Connecting Students.",
+    "og:description": "Connecting Students",
+    theme_color: "#7FBFFF",
+    background_color: "#7FBFFF"
+  },
+  icon: {
+    iconFileName: "static/icon.png"
+  },
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+  axios: {},
+
+  // Content module configuration (https://go.nuxtjs.dev/config-content)
+  content: {},
+  publicRuntimeConfig: {
+    STRAPI_URL: process.env.STRAPI_URL || "https://api.mitapro.jp/",
+    STRAPI_URL_NU: process.env.STRAPI_URL_NU || "https://api.mitapro.jp"
+  },
+  //Google Analytics用
+  "google-gtag": {
+    id: "G-03WSPTJCWX",
+    debug: true // Enable to track in dev mode.
+  },
+  //Sentryの設定
+  sentry: {
+    dsn:
+      "https://5461adaadfd1481292e55734c617ff59@o517764.ingest.sentry.io/5625980", // Enter your project's DSN here
+    lazy: true,
+    tracesSampleRate: 1.0,
+    integrations: [new TracingIntegrations.BrowserTracing()],
+    beforeSend(event, hint) {
+      // Check if it is an exception, and if so, show the report dialog
+      if (event.exception) {
+        Sentry.showReportDialog({ eventId: event.event_id });
+      }
+      return event;
+    },
+    vueOptions: {
+      tracing: true,
+      tracesSampleRate: 1.0,
+      integrations: [new TracingIntegrations.BrowserTracing()],
+      tracingOptions: {
+        hooks: ["mount", "update"],
+        timeout: 2000,
+        trackComponents: true
+      }
+    }
+  },
+  // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
+  vuetify: {
+    customVariables: ["~/assets/variables.scss"],
+    treeShake: false,
+    defaultAssets: {
+      family: false,
+      icons: "mdi"
+    },
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
+  strapi: {
+    entities: ["projects", "events", "articles", "users"],
+    url: "https://api.mitapro.jp",
+    expires: "31d"
+  },
+  toast: {
+    position: "top-right"
+  },
+  //Googleの検索結果等のIndexに載らないようにする
+  robots: {
+    UserAgent: "*",
+    Disallow: "/"
+  },
+  /* Authモジュールは使っていないため
+  auth: {
+    strategies: {
+      discord: {
+        _scheme: "oauth2",
+        endpoints: {
+          authorization: process.env.BASE_URL
+            ? process.env.BASE_URL + "/connect/auth0"
+            : "http://localhost:1337/connect/auth0",
+          token: "https://discord.com/api/oauth2/token",
+          userInfo: process.env.BASE_URL
+            ? process.env.BASE_URL + "/users/me"
+            : undefined
+        },
+        token: {
+          property: "jwt",
+          type: "Bearer",
+          maxAge: 365 * 24 * 60 * 60
+        },
+        responseType: "token",
+        redirectUri: `${process.env.BASE_URL ||
+          "http://localhost:1337"}/connect/auth0/callback`,
+        logoutRedirectUri: "/",
+        clientId: "823885094250479666",
+        scope: ["identify"]
+      } 
+    },
+    redirect: {
+      login: "/", // 未ログイン時のリダイレクト先
+      logout: "/logouted/", // ログアウト処理を実行した直後のリダイレクト先
+      callback: "/callback/", // コールバックURL
+      home: "/dashboard/top" // ログイン後に遷移するページ
+    }
+  },
+  */
+  generate: {
+    fallback: true
+  },
+  loadingIndicator: {
+    name: "cube-grid",
+    color: "#7FBFFF",
+    background: "white"
+  },
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {
+    parallel: true,
+    cache: true,
+    hardSource: false,
+    extend(config, ctx) {
+      config.devtool = "inline-cheap-module-source-map";
+    }
+  }
+};

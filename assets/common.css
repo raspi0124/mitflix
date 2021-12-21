@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.solomember {
+  width: 72%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.sidebtn {
+  margin-top: 20px;
+  width: 80%;
+  background-color: #7fbfff !important;
+  font-size: 1.2ch !important;
+}
+.bsidebtn {
+  margin-top: 20px;
+  width: 80%;
+  background-color: #7c83fd !important;
+  font-size: 1.2ch !important;
+}
+.b2sidebtn {
+  margin-top: 20px;
+  width: 80%;
+  background-color: #3ba8ed !important;
+  font-size: 1.2ch !important;
+}
+.mpbtn {
+  background-color: #7fbfff !important;
+  color: white !important;
+}
+.sidebtndanger {
+  margin-top: 20px;
+  width: 80% !important;
+  background-color: red !important;
+  font-size: 1.2ch !important;
+}
+.orgmark {
+  width: min-content;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 2px;
+  background-color: #7fbfff !important;
+  font-size: 12px;
+}
+.v-slide-group__wrapper {
+  touch-action: pan-y !important;
+}
+/*
+.projects_btns {
+  text-decoration: none !important;
+}
+*/
+/*↑のコードだと効かなかったので以下で*/
+a {
+  text-decoration: none;
+}
+
+.centerh2 {
+  position: relative;
+  margin-bottom: 1em;
+}
+.centerh2:before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #7fbfff;
+  border-radius: 2px;
+}
+
+.noncenterh2 {
+  padding: 0.5em; /*文字周りの余白*/
+  border-bottom: solid 3px #7fbfff; /*下線*/
+  font-weight: bold;
+}
+.mpul {
+  position: relative;
+  margin-bottom: 1em;
+}
+.mpul:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  display: inline-block;
+  width: 32px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #7fbfff;
+  border-radius: 2px;
+}
+/*https://saruwakakun.com/html-css/reference/h-design より*/
+
+.eventcomponent {
+  margin-top: 8px;
+}
+.center {
+  text-align: -webkit-center !important;
+  text-align: -moz-center !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.nontextcenter {
+  text-align: -webkit-center !important;
+  text-align: -moz-center !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.shadowtext {
+  text-shadow: 0.5px 0.5px 1px #333;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.rounded-card {
+  border-radius: 24px;
+  color: white !important;
+  background-color: #353535 !important;
+}
+.listContent {
+  color: white !important;
+}
+.rounded {
+  border-radius: 320px;
+}
+
+.betamark::before,
+.betamark::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.betamark::before {
+  border-color: #7fbfffa9 transparent transparent transparent;
+  border-style: solid;
+  border-width: 60px 0 0 60px;
+  content: "";
+  height: 0;
+  z-index: 2;
+}
+
+.betamark::after {
+  color: #fff;
+  content: "Beta!";
+  font-size: 12px;
+  top: 10px;
+  right: 5px;
+  transform: rotate(45deg) !important;
+  z-index: 3;
+}

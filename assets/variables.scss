@@ -1,0 +1,22 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+$body-font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Hiragino Sans", "Noto Sans CJK JP", "Original Yu Gothic", "Yu Gothic",
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Sans Emoji";
+
+//https://qiita.com/tsuka-rinorino/items/b30e03ce10aa38ac2a10
+
+// This is the project stylesheet
+
+// Colors
+$black: rgba(0, 0, 0, 1);
+$cornflower-blue: rgba(72, 139, 238, 1);
+$dark-slate-gray: rgba(53, 53, 53, 1);
+$gray: rgba(119, 119, 119, 1);
+$khaki: rgba(249, 233, 94, 1);
+$steel-blue: rgba(96, 130, 193, 1);
+$tomato: rgba(228, 89, 89, 1);
+$white: rgba(255, 255, 255, 1);

@@ -1,0 +1,183 @@
+[
+  {
+    "README": "*1がYes, 2がNo",
+    "README2": "最初の問題は0とする",
+    "README3": "例えばcaseが012だった場合最初の問題にYes, 2番目の問題にNoと答えたことになる",
+    "README4": "診断結果(問題がこれ以上無い場合)の表示の際はisendをtrueにセット",
+    "README5": "ところでなんで僕はこんな形式でコメントを書くことになってるんだろう感。jsonコメント対応してないのはさすがにキツイ"
+  },
+  {
+    "case": "0",
+    "question": "どちらかといえば大勢よりも一人で動く方が好きである",
+    "init": true,
+    "isend": false
+  },
+  {
+    "case": "01",
+    "question": "どちらかといえば好きなのは理系科目である",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "011",
+    "question": "どちらかといえば都会よりも自然が好きだ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "012",
+    "question": "フィクションよりもノンフィクションの方が好きだ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "0121",
+    "question": "自分で自分のお金の支出等を管理できている",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "01211",
+    "question": "経済・ビジネス・教育",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "01212",
+    "question": "政治・法律・教育",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "0122",
+    "question": "どちらかといえば物語は一人で楽しみたい",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "01221",
+    "question": "文学・基礎研究等",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "01222",
+    "question": "言語・コミュニケーション・ファッション・生活",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "0111",
+    "question": "ものづくりが好きだ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "0112",
+    "question": "生き物より物体に興味がある",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "01121",
+    "question": "宇宙・心理",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "01122",
+    "question": "生物・農業・環境",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "01111",
+    "question": "工学・デザイン",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "01112",
+    "question": "医療関係に興味がある",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "011121",
+    "question": "医科歯科薬科",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "011122",
+    "question": "数理",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "02",
+    "question": "どちらかといえば話すほうよりも聞く方だ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "021",
+    "question": "忍耐強い性格だ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "0211",
+    "question": "医療に興味がある",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "02111",
+    "question": "看護・保険・福祉",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "02112",
+    "question": "社会・コミュニティ・言語",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "0212",
+    "question": "環境問題に関心がある",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "02121",
+    "question": "環境",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "02122",
+    "question": "心・身体",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "022",
+    "question": "自分を表現することが得意だ",
+    "init": false,
+    "isend": false
+  },
+  {
+    "case": "0221",
+    "question": "アート・表現・ものづくり",
+    "init": false,
+    "isend": true
+  },
+  {
+    "case": "0222",
+    "question": "ファッション・生活",
+    "init": false,
+    "isend": true
+  }
+]
