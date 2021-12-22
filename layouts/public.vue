@@ -42,13 +42,6 @@
         <nuxt keep-alive :keep-alive-props="{ max: 16 }" />
       </v-container>
     </v-main>
-    <v-bottom-navigation app class="hidden-sm-and-up">
-      <!-- ボトムナビゲーション -->
-      <v-btn v-for="menu in menuItems" :key="menu.title" :to="menu.path">
-        <span>{{ menu.title }}</span>
-        <v-icon>{{ menu.icon }}</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
     <v-footer :absolute="true" app>
       <a
         style="margin-right:8px;"
@@ -78,15 +71,8 @@ export default {
   components: { AvaterMenu, HeaderCreateBtn },
   data() {
     return {
-      appTitle: "MITAPro",
-      sidebar: false,
-      menuItems: [
-        { title: "Home", path: "/", icon: "mdi-home" },
-        { title: "Events", path: "/events", icon: "mdi-calendar" },
-        { title: "Projects", path: "/projects", icon: "mdi-notebook" },
-        { title: "Articles", path: "/articles", icon: "mdi-post" },
-        { title: "About", path: "/about", icon: "mdi-information" }
-      ]
+      appTitle: "MiFilm",
+      sidebar: false
     };
   },
 
