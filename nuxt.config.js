@@ -84,7 +84,7 @@ export default {
    ** https://github.com/nuxt-community/pwa-module
    */
   pwa: {
-    source: "~/static/logo-cropped.png"
+    source: "~/static/favicon-32x32.png"
   },
   oneSignal: {
     init: {
@@ -117,7 +117,7 @@ export default {
     background_color: "#7FBFFF"
   },
   icon: {
-    iconFileName: "static/logo-cropped.png"
+    iconFileName: "static/favicon-32x32.png"
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -162,7 +162,7 @@ export default {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
-    treeShake: false,
+    treeShake: true,
     defaultAssets: {
       family: false,
       icons: "mdi"
@@ -183,7 +183,7 @@ export default {
     }
   },
   strapi: {
-    entities: ["projects", "events", "articles", "users"],
+    entities: ["projects", "events", "articles", "users", "videos"],
     url: "https://api.mitapro.jp",
     expires: "31d"
   },
