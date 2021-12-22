@@ -14,18 +14,22 @@
       :key="i"
       :src="film.thumbnail.url"
     >
-      <v-row no-gutters>
-        <v-col cols="5" xs="5" sm="5" md="5" lg="5" fill-height>
+      <v-row>
+        <v-col cols="12" xs="12" sm="12" md="5" lg="5">
           <v-card
             outlined
             tile
             height="100vh"
             color="transparent"
-            class="d-flex ml-16 mt-16"
+            class="d-flex"
+            :class="{
+              'my-3 pt-8': $vuetify.breakpoint.smAndDown,
+              'ml-16 mt-16': $vuetify.breakpoint.mdAndUp
+            }"
           >
             <v-container>
               <v-row style="height:25%">
-                <v-col style="height:25%">
+                <v-col>
                   <v-img
                     style="object-fit: cover; max-height: 25vh; width: auto;"
                     :src="film.logo.url"
@@ -33,15 +37,18 @@
                 </v-col>
               </v-row>
               <v-row style="height:25%">
-                <v-col style="height:25%">
+                <v-col>
                   <div class=" align-center justify-center">
                     {{ film.summary }}
                   </div>
                 </v-col>
               </v-row>
-              <v-row class="pt-16" style="height:25%">
-                <v-col>
-                  <div class=" align-center justify-center">
+              <v-row class="pt-16">
+                <v-col
+                  v-show="$vuetify.breakpoint.mdAndUp"
+                  class="align-center justify-center"
+                >
+                  <div>
                     <v-btn><v-icon>mdi-play</v-icon> Play</v-btn>
                     <v-btn class="ml-3"
                       ><v-icon class="pr-1">mdi-information-outline</v-icon
@@ -49,11 +56,22 @@
                     >
                   </div>
                 </v-col>
+                <v-col
+                  v-show="$vuetify.breakpoint.smAndDown"
+                  class="align-center justify-center"
+                >
+                  <v-container class="mt-5 center">
+                    <v-btn><v-icon>mdi-play</v-icon> Play</v-btn>
+                    <v-btn class="center"
+                      ><v-icon>mdi-information-outline</v-icon>Detail</v-btn
+                    >
+                  </v-container>
+                </v-col>
               </v-row>
             </v-container>
           </v-card>
         </v-col>
-        <v-col cols="6" xs="6" sm="6" md="6" lg="6"> </v-col>
+        <v-col cols="0" xs="0" sm="0" md="7" lg="7"> </v-col>
       </v-row>
     </v-carousel-item>
   </v-carousel>

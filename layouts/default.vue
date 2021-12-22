@@ -25,7 +25,7 @@
         style="cursor: pointer; font-size: 24px; margin-left:8px;margin-right:8px;"
       >
         <v-img
-          src="/logo-yoko-cropped-inverted-removebg.png"
+          src="https://storage.googleapis.com/mitapro/logo_yoko_cropped_inverted_removebg_bb6bac7d40/logo_yoko_cropped_inverted_removebg_bb6bac7d40.png"
           style="height:32px;width:150px; margin-right:10px;"
           alt="MITAPro映画祭"
         />
@@ -94,12 +94,16 @@ export default {
   components: { AvaterMenu },
   data() {
     return {
-      appTitle: "MITAPro",
+      appTitle: "MiFilm",
       sidebar: false,
       menuItems: [
         { title: "Home", path: "/", icon: "mdi-home" },
-        { title: "Film", path: "/articles", icon: "mdi-post" },
-        { title: "Short Film", path: "/about", icon: "mdi-information" }
+        { title: "Film", path: "/category/1", icon: "mdi-movie-open" },
+        {
+          title: "Short",
+          path: "/category/2",
+          icon: "mdi-video-vintage"
+        }
       ],
       is_transparent: "black"
     };
@@ -109,7 +113,12 @@ export default {
     if (!this.$strapi.user) {
       window.location.href = "/publictop";
     }
-    window.addEventListener("scroll", this.onScroll);
+  },
+  mounted() {
+    //Middlewareが上手くいかなかったのでとりあえずこっちサイドで対応 後で直す
+    if (!this.$strapi.user) {
+      window.location.href = "/publictop";
+    }
   },
   methods: {
     loginWithStrapi: function() {
