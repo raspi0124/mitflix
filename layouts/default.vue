@@ -19,7 +19,11 @@
     </v-navigation-drawer>
 
     <v-app-bar app style="background-color: rgba(0,0,0,.5);">
-      <nuxt-link to="/" tag="span" style="cursor: pointer; font-size: 24px;">
+      <nuxt-link
+        to="/"
+        tag="span"
+        style="cursor: pointer; font-size: 24px; margin-left:8px;margin-right:8px;"
+      >
         <v-img
           src="/logo-yoko-cropped-inverted-removebg.png"
           style="height:32px;width:150px; margin-right:10px;"
@@ -35,6 +39,7 @@
           v-for="item in menuItems"
           :key="item.title"
           :to="item.path"
+          style="margin-right:5px;"
         >
           {{ item.title }}
         </v-btn>
@@ -54,7 +59,7 @@
         >
         <AvaterMenu
           v-else
-          style="margin-right:-16px;"
+          style="margin-right:-16px; background-color: transparent;"
           :fullName="
             this.$strapi.user.displayname || this.$strapi.user.username
           "
@@ -64,12 +69,12 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <!--pages以下の内容を表示 keep-aliveで直近16ページ分までキャッシュ-->
-        <nuxt keep-alive :keep-alive-props="{ max: 16 }" />
-      </v-container>
+      <!--pages以下の内容を表示 keep-aliveで直近16ページ分までキャッシュ-->
+      <nuxt keep-alive :keep-alive-props="{ max: 16 }" />
     </v-main>
     <v-footer :absolute="true" app>
+      <nuxt-link to="/about" style="color:white;">About</nuxt-link>
+      <v-spacer></v-spacer>
       <div>&copy; MITAPro {{ new Date().getFullYear() }}</div>
     </v-footer>
     <v-bottom-navigation app class="hidden-sm-and-up">
@@ -93,8 +98,8 @@ export default {
       sidebar: false,
       menuItems: [
         { title: "Home", path: "/", icon: "mdi-home" },
-        { title: "Articles", path: "/articles", icon: "mdi-post" },
-        { title: "About", path: "/about", icon: "mdi-information" }
+        { title: "Film", path: "/articles", icon: "mdi-post" },
+        { title: "Short Film", path: "/about", icon: "mdi-information" }
       ],
       is_transparent: "black"
     };

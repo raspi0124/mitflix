@@ -1,9 +1,9 @@
 <!--右上にあるDashboardとかにいくメニューのコンポーネント-->
 <template>
-  <v-container style="background-color: rgba(0,0,0,.5);" color="rgba(0,0,0,.5">
+  <v-container style="background-color: rgba(0,0,0,.5);" color="rgba(0,0,0,.5)">
     <v-menu bottom min-width="200px" offset-y>
       <template v-slot:activator="{ on }">
-        <v-btn x-large :ripple="false" v-on="on" plain>
+        <v-btn x-large :ripple="false" v-on="on" plain color="rgba(0,0,0,.5)">
           <v-avatar tile size="32" color="blue">
             <img :src="avaterimg" alt="ICONOPEN" />
           </v-avatar>
@@ -13,7 +13,7 @@
         <v-list-item-content
           class="justify-center"
           style="background-color: rgba(0,0,0,.5);"
-          color="rgba(0,0,0,.5"
+          color="rgba(0,0,0,.5)"
         >
           <div class="mx-auto text-center">
             <v-avatar tile color="blue">

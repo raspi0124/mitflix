@@ -14,8 +14,8 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: "%s - MITAPro",
-    title: "MITAPro",
+    titleTemplate: "%s - MiFilm",
+    title: "MITAPRO Film Festival",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -23,7 +23,7 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: "preconnect", href: "https://mitalink.raspi0124.dev" },
+      { rel: "preconnect", href: "https://film.mitapro.jp" },
       { rel: "preconnect", href: "https://storage.googleapis.com" }
       /*{
         rel: "Stylesheet",
@@ -84,7 +84,7 @@ export default {
    ** https://github.com/nuxt-community/pwa-module
    */
   pwa: {
-    source: "~/static/icon.png"
+    source: "~/static/logo-cropped.png"
   },
   oneSignal: {
     init: {
@@ -99,11 +99,11 @@ export default {
     }
   },
   manifest: {
-    name: "MITAPro",
+    name: "MITAPRO Film Festival",
     lang: "ja",
-    short_name: "MITAPro",
-    title: "MITAPro",
-    "og:title": "MITAPro",
+    short_name: "MiFilm",
+    title: "MITAPRO Film Festival",
+    "og:title": "MITAPRO Film Festival",
     //新しいPWAインストールプロンプト用 スクリーンショットが用意出来たら入れること
     screenshots: [
       {
@@ -112,13 +112,12 @@ export default {
         sizes: ""
       }
     ],
-    description: "MITAPro, Connecting Students.",
-    "og:description": "Connecting Students",
-    theme_color: "#7FBFFF",
+    description: "MITAPRO Film Festival",
+    theme_color: "red",
     background_color: "#7FBFFF"
   },
   icon: {
-    iconFileName: "static/icon.png"
+    iconFileName: "static/logo-cropped.png"
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -196,48 +195,13 @@ export default {
     UserAgent: "*",
     Disallow: "/"
   },
-  /* Authモジュールは使っていないため
-  auth: {
-    strategies: {
-      discord: {
-        _scheme: "oauth2",
-        endpoints: {
-          authorization: process.env.BASE_URL
-            ? process.env.BASE_URL + "/connect/auth0"
-            : "http://localhost:1337/connect/auth0",
-          token: "https://discord.com/api/oauth2/token",
-          userInfo: process.env.BASE_URL
-            ? process.env.BASE_URL + "/users/me"
-            : undefined
-        },
-        token: {
-          property: "jwt",
-          type: "Bearer",
-          maxAge: 365 * 24 * 60 * 60
-        },
-        responseType: "token",
-        redirectUri: `${process.env.BASE_URL ||
-          "http://localhost:1337"}/connect/auth0/callback`,
-        logoutRedirectUri: "/",
-        clientId: "823885094250479666",
-        scope: ["identify"]
-      } 
-    },
-    redirect: {
-      login: "/", // 未ログイン時のリダイレクト先
-      logout: "/logouted/", // ログアウト処理を実行した直後のリダイレクト先
-      callback: "/callback/", // コールバックURL
-      home: "/dashboard/top" // ログイン後に遷移するページ
-    }
-  },
-  */
   generate: {
     fallback: true
   },
   loadingIndicator: {
-    name: "cube-grid",
-    color: "#7FBFFF",
-    background: "white"
+    name: "rectangle-bounce",
+    color: "red",
+    background: "black"
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
