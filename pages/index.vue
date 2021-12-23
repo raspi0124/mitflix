@@ -1,8 +1,8 @@
 `<template>
   <div>
     <TopSlider />
-    <VideoSwiper headlineTitle="Tekitou" :videos="videos" />
-    <VideoSwiper headlineTitle="Tekitou2" :videos="videos" />
+    <VideoSwiper headlineTitle="Tekitou" :videos="allvideos" />
+    <VideoSwiper headlineTitle="Tekitou2" :videos="allvideos" />
   </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       lighthousealert: false,
-      videos: ""
+      allvideos: ""
     };
   },
   mounted() {
@@ -31,7 +31,7 @@ export default {
     },
     async getFilms() {
       var pts = await this.$strapi.find("videos");
-      this.videos = pts;
+      this.allvideos = pts;
     }
   },
   head() {

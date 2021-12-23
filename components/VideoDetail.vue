@@ -87,6 +87,8 @@
                 <div style="padding-top:20px; padding-bottom:20px;">
                   {{ video.casts }}
                 </div>
+                <h2>このカテゴリの映画</h2>
+                <VideoSwiper :videos="categoryvideos"></VideoSwiper>
               </v-card-text>
             </v-col>
             <!--右側カラム-->
@@ -107,7 +109,7 @@
                 outlined
                 tile
                 height="100%"
-                color="rgba(0, 0, 0, 0.2)"
+                color="rgba(0, 0, 0, 1)"
                 align="center"
                 style="margin-bottom:20px"
               >
@@ -139,11 +141,23 @@
 export default {
   data() {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      categoryvideos: ""
     };
   },
-  //上位コンポーネント、この場合は/pages/video/_id.vue、からの情報等の引継ぎ。video変数として保存。
+  //上位コンポーネント、この場合は/pages/film/_id.vue、からの情報等の引継ぎ。video変数として保存。
   props: ["video"],
+  methods: {
+    //上位コンポーネントの準備が完了した際この関数を発火
+    async UpperReady() {
+      var categoryid = this.video.videocategory.id;
+      var pts = await this.$strapi.find("videos", {
+        videocategory: categoryid
+      });
+      this.categoryvideos = pts;
+      console.log("UPPERREADYFIN");
+    }
+  },
   //ボタンのローダー用
   watch: {
     loader() {
@@ -153,6 +167,11 @@ export default {
       setTimeout(() => (this[l] = false), 3000);
 
       this.loader = null;
+    },
+    video: function(newVal, oldVal) {
+      if (newVal.videocategory.id) {
+        this.UpperReady();
+      }
     }
   },
   computed: {
