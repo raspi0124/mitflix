@@ -63,8 +63,10 @@
                   class="align-center justify-center"
                 >
                   <v-container class="mt-5 center">
-                    <v-btn><v-icon>mdi-play</v-icon> Play</v-btn>
-                    <v-btn class="center"
+                    <v-btn :to="'/play/' + film.id"
+                      ><v-icon>mdi-play</v-icon> Play</v-btn
+                    >
+                    <v-btn class="center" :to="'/film/' + film.id"
                       ><v-icon>mdi-information-outline</v-icon>Detail</v-btn
                     >
                   </v-container>
@@ -82,17 +84,29 @@
 export default {
   data() {
     return {
-      films: []
+      films: [],
+      currtime: 0
     };
   },
   methods: {
     async getFilms() {
       //ここでスライド一覧のjsonを取得
       this.films = await this.$strapi.find("videos");
+    },
+    currentUnixTime() {
+      this.currtime = Math.floor(Date.now() / 1000);
     }
   },
-  activated() {
+  mounted() {
     this.getFilms();
+    this.currentUnixTime();
+  },
+  activated() {
+    //If the current time is more then a day, then get the new data
+    if (this.currtime < Math.floor(Date.now() / 1000) - 3600) {
+      this.getFilms();
+      this.currentUnixTime();
+    }
   }
 };
 </script>

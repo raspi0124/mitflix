@@ -1,6 +1,12 @@
 <template>
   <vue-plyr v-if="video">
-    <video controls crossorigin playsinline :data-poster="video.thumbnail.url">
+    <video
+      controls
+      crossorigin
+      playsinline
+      autoplay
+      :data-poster="video.thumbnail.url"
+    >
       <source :src="video.videosourceurl" />
     </video>
   </vue-plyr>
