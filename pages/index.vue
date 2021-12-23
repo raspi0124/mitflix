@@ -1,8 +1,5 @@
 `<template>
   <div>
-    <h1 v-if="lighthousealert">
-      パフォーマンス無視で実装速度優先で実装してるのでLighthouseのスコアは遅いですがひと段落ついた時に高速化しますはい...
-    </h1>
     <TopSlider />
     <VideoSwiper headlineTitle="Tekitou" :videos="videos" />
     <VideoSwiper headlineTitle="Tekitou2" :videos="videos" />
@@ -17,7 +14,6 @@ export default {
     };
   },
   mounted() {
-    this.detectlighthouse();
     this.getFilms();
     //console.log(process.env.currentenv);
   },
