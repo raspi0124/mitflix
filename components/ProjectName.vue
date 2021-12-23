@@ -1,6 +1,10 @@
 <!--プロジェクトや記事ページで使われている著者の表示コンポーネント-->
 <template>
-  <a :href="'https://mitapro.jp/project/' + projectid">
+  <a
+    :href="'https://mitapro.jp/project/' + projectid"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <div class="solomember white--text">
       <v-avatar size="48">
         <img :src="avaterpic" :alt="projectname" />
