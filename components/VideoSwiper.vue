@@ -12,7 +12,7 @@
             <v-img
               height="25vh"
               min-height="200px"
-              min-width="200px"
+              min-width="300px"
               :src="video.thumbnail.url"
             >
               <div class="d-flex transparent" style="height: 100%;">
