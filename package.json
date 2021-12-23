@@ -34,7 +34,7 @@
     "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.12.1",
+    "@nuxtjs/vuetify": "^1.12.3",
     "eslint": "^7.20.0",
     "eslint-plugin-vue": "^7.6.0"
   }
