@@ -26,6 +26,9 @@
           </nuxt-link>
         </div>
       </VueSlickCarousel>
+      <div v-else>
+        <v-skeleton-loader width="100vw" type="image"></v-skeleton-loader>
+      </div>
     </div>
   </div>
 </template>

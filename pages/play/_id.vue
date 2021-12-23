@@ -87,7 +87,7 @@ export default {
   },
   head() {
     return {
-      title: this.$route.params.id,
+      title: "Playing " + this.$route.params.id,
       meta: [
         { hid: "description", name: "description", content: "description" }
       ]
