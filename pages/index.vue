@@ -4,22 +4,20 @@
       パフォーマンス無視で実装速度優先で実装してるのでLighthouseのスコアは遅いですがひと段落ついた時に高速化しますはい...
     </h1>
     <TopSlider />
+    <VideoSwiper :videos="videos" />
   </div>
 </template>
 <script>
-import TopSlider from "~/components/TopSlider.vue";
-
 export default {
-  components: {
-    TopSlider
-  },
   data() {
     return {
-      lighthousealert: false
+      lighthousealert: false,
+      videos: ""
     };
   },
   mounted() {
     this.detectlighthouse();
+    this.getFilms();
     //console.log(process.env.currentenv);
   },
   methods: {
@@ -33,6 +31,10 @@ export default {
         );
         this.lighthousealert = true;
       }
+    },
+    async getFilms() {
+      var pts = await this.$strapi.find("videos");
+      this.videos = pts;
     }
   },
   head() {
