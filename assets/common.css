@@ -166,3 +166,17 @@ img {
   transform: rotate(45deg) !important;
   z-index: 3;
 }
+
+.imgWrapper {
+  overflow: hidden;
+  background: #000;
+}
+.imginWrapper {
+  width: 100%;
+  transition-duration: 0.3s;
+}
+.imginWrapper:hover {
+  transition-duration: 0.3s;
+  transform: scale(1.2);
+  opacity: 0.6;
+}

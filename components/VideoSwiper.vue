@@ -9,20 +9,23 @@
       >
         <div class="d-flex flex-column" v-for="video in videos" :key="video.id">
           <nuxt-link :to="'/film/' + video.id">
-            <v-img
-              height="25vh"
-              min-height="200px"
-              min-width="300px"
-              :src="video.thumbnail.url"
-            >
-              <div class="d-flex transparent" style="height: 100%;">
-                <v-img
-                  class="mx-3 mt-3"
-                  width="80%"
-                  :src="video.logo.url"
-                ></v-img>
-              </div>
-            </v-img>
+            <div class="imgWrapper">
+              <v-img
+                height="25vh"
+                min-height="200px"
+                min-width="300px"
+                class="imginWrapper"
+                :src="video.thumbnail.url"
+              >
+                <div class="d-flex transparent" style="height: 100%;">
+                  <v-img
+                    class="mx-3 mt-3"
+                    width="80%"
+                    :src="video.logo.url"
+                  ></v-img>
+                </div>
+              </v-img>
+            </div>
           </nuxt-link>
         </div>
       </VueSlickCarousel>

@@ -5,9 +5,9 @@
       <v-layout row wrap v-if="videos">
         <v-flex xs12 sm6 md6 lg4 v-for="video in orderedvideos" :key="video.id">
           <nuxt-link :to="'/film/' + video.id">
-            <v-card class="mx-auto" max-width="800px">
+            <v-card class="mx-auto imgWrapper" max-width="800px">
               <v-img
-                class="white--text align-end"
+                class="imginWrapper align-end"
                 height="300px"
                 :src="video.thumbnail.url"
               >
