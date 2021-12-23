@@ -49,8 +49,10 @@
                   class="align-center justify-center"
                 >
                   <div>
-                    <v-btn><v-icon>mdi-play</v-icon> Play</v-btn>
-                    <v-btn class="ml-3"
+                    <v-btn :to="'/play/' + film.id">
+                      <v-icon>mdi-play</v-icon> Play</v-btn
+                    >
+                    <v-btn class="ml-3" :to="'/film/' + film.id"
                       ><v-icon class="pr-1">mdi-information-outline</v-icon
                       >Detail</v-btn
                     >
