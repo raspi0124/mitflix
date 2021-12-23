@@ -65,10 +65,9 @@
 
 <script>
 import AvaterMenu from "~/components/AvaterMenu.vue";
-import HeaderCreateBtn from "~/components/HeaderCreateBtn";
 
 export default {
-  components: { AvaterMenu, HeaderCreateBtn },
+  components: { AvaterMenu },
   data() {
     return {
       appTitle: "MiFilm",

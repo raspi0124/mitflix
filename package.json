@@ -29,15 +29,9 @@
     "node-sass": "^7.0.0",
     "nuxt": "^2.15.8",
     "nuxt-imagemin": "^1.0.0",
-    "quill-image-drop-module": "^1.0.3",
-    "quill-image-resize-module": "^3.0.0",
-    "sanitize-html": "^2.5.2",
     "sass-loader": "10",
-    "swiper": "^7.3.4",
-    "vue-awesome-swiper": "^4.1.1",
     "vue-plyr": "^7.0.0",
-    "vue-slick-carousel": "^1.0.6",
-    "vue2-editor": "^2.10.3"
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1",
