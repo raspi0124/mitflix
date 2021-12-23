@@ -19,7 +19,7 @@ export default {
     },
     projectid: {
       //type: String,
-      default: "-1"
+      default: "22"
     },
     avater: {
       default: {

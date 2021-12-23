@@ -1,4 +1,4 @@
-<!--記事本体用のコンポーネント-->
+<!--映像詳細用のコンポーネント-->
 <template>
   <v-app>
     <v-row justify="center" width="100vw" height="100vh">
@@ -114,9 +114,8 @@
                 <!--この記事が紐づいているプロジェクトの名前-->
                 <ProjectName
                   v-if="video.project !== null"
-                  :membername="video.project.projectname"
-                  :memberid="video.project.id"
-                  isproject="true"
+                  :projectname="video.project.projectname"
+                  :projectid="video.project.id"
                   :avater="video.project.picture"
                 />
               </v-card>
