@@ -43,7 +43,9 @@ export default {
     { src: "~plugins/sanitize.js" },
     { src: "~plugins/axios.js" },
     { src: "~plugins/sentry-plus.js" },
-    { src: "~plugins/strapi.js" }
+    { src: "~plugins/strapi.js" },
+    { src: "~plugins/vue-plyr.js", ssr: false }
+
     /*{
       src: "~plugins/ga.js",
       mode: "client"
@@ -162,7 +164,7 @@ export default {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
-    treeShake: false,
+    treeShake: true,
     defaultAssets: {
       family: false,
       icons: "mdi"
@@ -200,7 +202,7 @@ export default {
   },
   loadingIndicator: {
     name: "rectangle-bounce",
-    color: "red",
+    color: "white",
     background: "black"
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)

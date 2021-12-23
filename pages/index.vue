@@ -4,7 +4,8 @@
       パフォーマンス無視で実装速度優先で実装してるのでLighthouseのスコアは遅いですがひと段落ついた時に高速化しますはい...
     </h1>
     <TopSlider />
-    <VideoSwiper :videos="videos" />
+    <VideoSwiper headlineTitle="Tekitou" :videos="videos" />
+    <VideoSwiper headlineTitle="Tekitou2" :videos="videos" />
   </div>
 </template>
 <script>
