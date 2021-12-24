@@ -124,7 +124,7 @@ export default {
   //Sentryの設定
   sentry: {
     dsn:
-      "https://5461adaadfd1481292e55734c617ff59@o517764.ingest.sentry.io/5625980", // Enter your project's DSN here
+      "https://649bebaab4924b3daa28215efb38248b@o517764.ingest.sentry.io/6120258", // Enter your project's DSN here
     lazy: true,
     tracesSampleRate: 1.0,
     integrations: [new TracingIntegrations.BrowserTracing()],

@@ -75,7 +75,7 @@
     <v-footer :absolute="true" app>
       <nuxt-link to="/about" style="color:white;">About</nuxt-link>
       <v-spacer></v-spacer>
-      <div>&copy; MITAPro {{ new Date().getFullYear() }}</div>
+      <div>&copy; Computer Club & MITAPro {{ new Date().getFullYear() }}</div>
     </v-footer>
     <v-bottom-navigation app class="hidden-sm-and-up">
       <!-- ボトムナビゲーション -->
