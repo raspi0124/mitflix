@@ -1,6 +1,11 @@
 `<template>
   <div>
     <TopSlider />
+    <VideoSwiper
+      v-if="votedvideos"
+      headlineTitle="My Votes"
+      :videos="votedvideos"
+    />
     <VideoSwiper headlineTitle="Tekitou" :videos="allvideos" />
     <VideoSwiper headlineTitle="Tekitou2" :videos="allvideos" />
   </div>
@@ -10,12 +15,17 @@ export default {
   data() {
     return {
       lighthousealert: false,
-      allvideos: ""
+      allvideos: "",
+      votedvideos: ""
     };
   },
   mounted() {
     this.getFilms();
+    this.getVoted();
     //console.log(process.env.currentenv);
+  },
+  activated() {
+    this.getVoted();
   },
   methods: {
     detectlighthouse() {
@@ -32,6 +42,10 @@ export default {
     async getFilms() {
       var pts = await this.$strapi.find("videos");
       this.allvideos = pts;
+    },
+    async getVoted() {
+      const user = await this.$strapi.findOne("users", this.$strapi.user.id);
+      this.votedvideos = user.votedvideos;
     }
   },
   head() {

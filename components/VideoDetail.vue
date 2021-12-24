@@ -43,8 +43,36 @@
                           <v-btn :to="'/play/' + video.id">
                             <v-icon>mdi-play</v-icon> Play</v-btn
                           >
-                          <v-btn class="ml-5" disabled>
-                            <v-icon>mdi-vote</v-icon> Vote</v-btn
+                          <v-btn
+                            v-if="!voted"
+                            class="ml-5"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="votevideo()"
+                            ><v-icon>mdi-vote</v-icon>Vote</v-btn
+                          >
+                          <v-btn
+                            v-if="voted && !votedclicked"
+                            class="ml-5"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="votedclick()"
+                            ><v-icon>mdi-check</v-icon>Voted</v-btn
+                          >
+                          <v-btn
+                            v-if="voted && votedclicked"
+                            color="danger"
+                            class="ml-5"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="removevote()"
+                            ><v-icon>mdi-delete</v-icon>Withdraw</v-btn
                           >
                         </div>
                       </v-col>
@@ -56,8 +84,35 @@
                           <v-btn :to="'/play/' + video.id"
                             ><v-icon>mdi-play</v-icon> Play</v-btn
                           >
-                          <v-btn class="center" disabled
+                          <v-btn
+                            v-if="!voted"
+                            class="center"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="votevideo()"
                             ><v-icon>mdi-vote</v-icon>Vote</v-btn
+                          >
+                          <v-btn
+                            v-if="voted && !votedclick"
+                            class="center"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="votedclick()"
+                            ><v-icon>mdi-check</v-icon>Voted</v-btn
+                          >
+                          <v-btn
+                            v-if="voted && votedclick"
+                            class="center"
+                            :loading="voteloading"
+                            :disabled="
+                              voteloading || voteclosed || !$strapi.user
+                            "
+                            @click="removevote()"
+                            ><v-icon>mdi-delete</v-icon>Withdraw</v-btn
                           >
                         </v-container>
                       </v-col>
@@ -139,10 +194,21 @@
 
 <script>
 export default {
+  mounted() {
+    this.isVoted();
+  },
+  activated() {
+    this.isVoted();
+  },
   data() {
     return {
       id: this.$route.params.id,
-      categoryvideos: ""
+      categoryvideos: "",
+      //ここから投票関連
+      voted: false,
+      voteloading: false,
+      voteclosed: false,
+      votedclicked: false
     };
   },
   //上位コンポーネント、この場合は/pages/film/_id.vue、からの情報等の引継ぎ。video変数として保存。
@@ -156,6 +222,104 @@ export default {
       });
       this.categoryvideos = pts;
       console.log("UPPERREADYFIN");
+    },
+    //ここから投票関連
+    async addvote() {
+      var curvotedfilms = [];
+      //自ユーザーの情報を取得 (this.$strapi.userだと#10229で報告済みのバグが発生するためユーザーID指定で取得)
+      const user = await this.$strapi.findOne("users", this.$strapi.user.id);
+      var votedvideos = user.votedvideos;
+      //今入っているプロジェクトをcurvotedfilmsというArrayに格納
+      for (var key in votedvideos) {
+        var video = votedvideos[key];
+        curvotedfilms.push(video.id);
+      }
+      //curvotedfilmsにこのプロジェクトのIDを追加
+      curvotedfilms.push(this.id);
+      //リクエスト用のjsonを生成
+      var form = { votedvideos: curvotedfilms };
+      //送信
+      const newuser = await this.$strapi.update(
+        "users",
+        this.$strapi.user.id,
+        form
+      );
+      this.$strapi.setUser(newuser);
+      //フォロー後にプロジェクト詳細を更新
+      this.$emit("reload");
+      this.$toast.success("投票しました").goAway(8000);
+      this.voted = true;
+      this.$emit("reload");
+    },
+    //既存のvotedvideosからこのプロジェクトを消す(フォローを解除する)関数
+    async removevote() {
+      this.loader = "leaveloading";
+      var curvotedfilms = [];
+      //自ユーザーの情報を取得 (this.$strapi.userだと#10229で報告済みのバグが発生するためユーザーID指定で取得)
+      const user = await this.$strapi.findOne("users", this.$strapi.user.id);
+      var votedvideos = user.votedvideos;
+      //今入っているプロジェクトをcurvotedfilmsというArrayに格納
+      for (var key in votedvideos) {
+        var video = votedvideos[key];
+        curvotedfilms.push(video.id);
+      }
+      //curvotedfilmsからこのプロジェクトのIDを削除
+      var newcurvotedfilms = this.removeId(curvotedfilms, Number(this.id));
+      //リクエスト用のjsonを生成
+      var form = { votedvideos: newcurvotedfilms };
+      //送信
+      const newuser = await this.$strapi.update(
+        "users",
+        this.$strapi.user.id,
+        form
+      );
+      this.$strapi.setUser(newuser);
+      this.votedclicked = false;
+      this.$toast.error("投票を撤回しました").goAway(8000);
+      this.voted = false;
+      this.$emit("reload");
+    },
+    votevideo() {
+      this.loader = "voteloading";
+      if (this.$strapi.user) {
+        this.addvote();
+      } else {
+        this.$toast.info("ログインしていません").goAway(8000);
+      }
+    },
+    votedclick() {
+      this.votedclicked = true;
+    },
+    //すでに投票済みか確認する関数
+    async isVoted() {
+      //もしユーザーがログインしていない場合
+      if (!this.$strapi.user) {
+        this.voted = false;
+        //関数をこの時点で修了
+        return;
+      }
+      var curvotedfilms = [];
+      //自ユーザーの情報を取得 (this.$strapi.userだと#10229で報告済みのバグが発生するためユーザーID指定で取得)
+      const user = await this.$strapi.findOne("users", this.$strapi.user.id);
+      var votedvideos = user.votedvideos;
+      //今入っているプロジェクトをcurvotedfilmsというArrayに格納
+      for (var key in votedvideos) {
+        var video = votedvideos[key];
+        curvotedfilms.push(String(video.id));
+      }
+      //もしcurvotedfilmsにこのプロジェクトが入っていれば
+      if (curvotedfilms.includes(String(this.id))) {
+        //votedとして設定
+        this.voted = true;
+      } else {
+        //votedをfalseに設定
+        this.voted = false;
+      }
+    },
+    removeId(array, value) {
+      var index = array.indexOf(value);
+      array.splice(index, 1);
+      return array;
     }
   },
   //ボタンのローダー用
