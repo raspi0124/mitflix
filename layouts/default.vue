@@ -79,9 +79,10 @@
         👨‍✈️🛫📽 by Shoya.M, ✍️🛠️ by Junsei.M
       </div>
       <div class="pl-3">
-        <span>&copy;MITAPro {{ new Date().getFullYear() }}</span>
+        <span>&copy;MITAPro, PCClub {{ new Date().getFullYear() }}</span>
       </div>
     </v-footer>
+
     <v-bottom-navigation app class="hidden-sm-and-up">
       <!-- ボトムナビゲーション -->
       <v-btn v-for="menu in menuItems" :key="menu.title" :to="menu.path">
