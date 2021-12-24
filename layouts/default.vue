@@ -72,10 +72,15 @@
       <!--pages以下の内容を表示 keep-aliveで直近16ページ分までキャッシュ-->
       <nuxt keep-alive :keep-alive-props="{ max: 16 }" />
     </v-main>
-    <v-footer :absolute="true" app>
+    <v-footer absolute app>
       <nuxt-link to="/about" style="color:white;">About</nuxt-link>
       <v-spacer></v-spacer>
-      <div>&copy; Computer Club & MITAPro {{ new Date().getFullYear() }}</div>
+      <div class="hidden-sm-and-down">
+        👨‍✈️🛫📽 by Shoya.M, ✍️🛠️ by Junsei.M
+      </div>
+      <div class="pl-3">
+        <span>&copy;MITAPro {{ new Date().getFullYear() }}</span>
+      </div>
     </v-footer>
     <v-bottom-navigation app class="hidden-sm-and-up">
       <!-- ボトムナビゲーション -->

@@ -5,7 +5,7 @@
       <v-col width="100vw" height="100vh">
         <v-card width="100vw" v-if="video">
           <v-img class="white--text align-end" height="100vh" :src="pictureurl">
-            <v-row>
+            <v-row class="largefilmImg">
               <v-col cols="12" xs="12" sm="12" md="5" lg="5">
                 <v-card
                   outlined

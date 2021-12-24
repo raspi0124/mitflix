@@ -180,3 +180,12 @@ img {
   transform: scale(1.2);
   opacity: 0.6;
 }
+
+.largefilmImg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.64) 32%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}

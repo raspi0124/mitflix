@@ -14,7 +14,7 @@
       :key="i"
       :src="film.thumbnail.url"
     >
-      <v-row>
+      <v-row class="largefilmImg">
         <v-col cols="12" xs="12" sm="12" md="5" lg="5">
           <v-card
             outlined
