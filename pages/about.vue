@@ -6,10 +6,18 @@
       <div class="name">J2 Shoya Murakami</div>
       <div class="job">開発</div>
       <div class="name">S3 Junsei Miyazawa</div>
+      <div class="job">企画</div>
+      <div class="name">S2 Kanata Nomura</div>
       <div class="job">開発</div>
       <div class="name">J2 Kaoru Nishihata</div>
+      <div class="job">Special Thanks</div>
+      <div class="name">Hiroshi Miyajima</div>
+      <div class="name">S3 Yuma Ohashi</div>
+      <div class="name">MIS歌謡祭</div>
       <div class="job">主催</div>
       <div class="name">MITAPRO</div>
+      <div class="job">顧問</div>
+      <div class="name">大野先生</div>
     </div>
   </div>
 </template>
@@ -48,7 +56,7 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #fff;
-  animation: 10s credits linear forwards;
+  animation: 16s credits linear forwards;
 }
 
 .movie {
@@ -72,7 +80,7 @@ export default {
   }
 
   100% {
-    top: 0%;
+    top: -100%;
   }
 }
 </style>
