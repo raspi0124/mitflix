@@ -64,7 +64,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/onesignal",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     // https://go.nuxtjs.dev/content
@@ -85,18 +84,6 @@ export default {
    */
   pwa: {
     source: "~/static/favicon-32x32.png"
-  },
-  oneSignal: {
-    init: {
-      appId: "e2651f5d-f425-49b3-9ea7-1fb4df9193af",
-      allowLocalhostAsSecureOrigin: true,
-      welcomeNotification: {
-        disable: false
-      },
-      notifyButton: {
-        enable: true
-      }
-    }
   },
   manifest: {
     name: "MITAPRO Film Festival",
@@ -131,7 +118,7 @@ export default {
   },
   //Google Analytics用
   "google-gtag": {
-    id: "G-03WSPTJCWX",
+    id: "G-GXB6HHSZQM",
     debug: true // Enable to track in dev mode.
   },
   //Sentryの設定
