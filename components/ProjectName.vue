@@ -30,7 +30,7 @@ export default {
         formats: {
           thumbnail: {
             url:
-              "https://storage.googleapis.com/mitapro/icon_412338ca4b/icon_412338ca4b.png"
+              "https://storage.googleapis.com/mitapro/thumbnail_logo_inverted_832c37ec8f/thumbnail_logo_inverted_832c37ec8f.png"
           }
         }
       }
@@ -41,7 +41,7 @@ export default {
       if (this.avater) {
         return this.avater.formats.thumbnail.url;
       } else {
-        return "https://storage.googleapis.com/mitapro/icon_412338ca4b/icon_412338ca4b.png";
+        return "https://storage.googleapis.com/mitapro/thumbnail_logo_inverted_832c37ec8f/thumbnail_logo_inverted_832c37ec8f.png";
       }
     }
   }

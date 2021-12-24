@@ -116,9 +116,9 @@
                 <!--この記事が紐づいているプロジェクトの名前-->
                 <ProjectName
                   v-if="video.project !== null"
-                  :projectname="video.project.projectname"
+                  :projectname="video.projectname || video.project.projectname"
                   :projectid="video.project.id"
-                  :avater="video.project.picture"
+                  :avater="video.projectlogo || video.project.picture"
                 />
               </v-card>
             </v-col>
