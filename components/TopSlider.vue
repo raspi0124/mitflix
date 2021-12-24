@@ -62,7 +62,7 @@
                   v-show="$vuetify.breakpoint.smAndDown"
                   class="align-center justify-center"
                 >
-                  <v-container class="mt-5 center">
+                  <v-container class="mt-8 center">
                     <v-btn :to="'/play/' + film.id"
                       ><v-icon>mdi-play</v-icon> Play</v-btn
                     >
