@@ -11,12 +11,12 @@
       headlineTitle="Popular Choice (By Vote)"
       :videos="popularvideos"
     />
-
     <VideoSwiper headlineTitle="映画部門" :videos="filmvideos" />
     <VideoSwiper
       headlineTitle="ショートムービー・その他部門"
       :videos="shortvideos"
     />
+    <VideoSwiper headlineTitle="MITAPROトレーラー" :videos="cmvideos" />
   </div>
 </template>
 <script>
@@ -28,7 +28,8 @@ export default {
       votedvideos: "",
       popularvideos: "",
       filmvideos: "",
-      shortvideos: ""
+      shortvideos: "",
+      cmvideos: ""
     };
   },
   mounted() {
@@ -73,8 +74,12 @@ export default {
       var pta = await this.$strapi.find("videos", {
         videocategory: 2
       });
+      var ptb = await this.$strapi.find("videos", {
+        videocategory: 3
+      });
       this.filmvideos = pts;
       this.shortvideos = pta;
+      this.cmvideos = ptb;
     }
   },
   head() {
