@@ -13,6 +13,6 @@
     審査員票と視聴者票を6:4の割合で投票に組み込みます。<br />
     投票は、複数回できる仕組みになっています。<br />
     審査員: 五十嵐先生、宮島さん、山本凜さん、蔭島獅門シャキルさん<br />
-    <v-img src="times.png" width="50vw" class="mt-3" />
+    <v-img src="/times.png" width="50vw" class="mt-3" />
   </v-container>
 </template>
