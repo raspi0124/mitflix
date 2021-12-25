@@ -1,11 +1,10 @@
 <template
   ><div>
-    <div class="pa-8">
+    <div v-if="videos" class="pa-8">
       <h2 class="py-3 pb-5">{{ headlineTitle }}</h2>
       <VueSlickCarousel
         style="height:25vh;min-height:200px;min-width:200px;"
         v-bind="SlickSettings"
-        v-if="videos"
       >
         <div class="d-flex flex-column" v-for="video in videos" :key="video.id">
           <nuxt-link :to="'/film/' + video.id">
