@@ -58,7 +58,7 @@
             class="name pt-8"
             style="font-size:22px;font-family: sans-serif !important;"
           >
-            二〇二一年十二月吉日 村上 翔也
+            二〇二一年十二月吉日 村上 翔哉
           </div>
         </div>
       </div>
