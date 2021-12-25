@@ -27,7 +27,18 @@ export default {
       var pts = await this.$strapi.find("videos", {
         videocategory: categoryid
       });
-      this.videos = pts;
+      var shuffled = this.shuffle(pts);
+      this.videos = shuffled;
+    },
+    shuffle(sourceArray) {
+      for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+      }
+      return sourceArray;
     }
   },
   //activated()がある場合はmountedはいらないけど万が一keep-aliveを消すことになったときに面倒なので一応残しておく
