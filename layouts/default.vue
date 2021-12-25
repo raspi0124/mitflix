@@ -74,12 +74,17 @@
     </v-main>
     <v-footer absolute app>
       <nuxt-link to="/about" style="color:white;">About</nuxt-link>
+      <nuxt-link to="/casts" class="pl-3" style="color:white;">Casts</nuxt-link>
       <v-spacer></v-spacer>
       <div class="hidden-sm-and-down">
         👨‍✈️🛫📽 by Shoya.M, ✍️🛠️ by Junsei.M
       </div>
       <div class="pl-3">
-        <span>&copy;MITAPro, PCClub {{ new Date().getFullYear() }}</span>
+        <span
+          >&copy;
+          <a href="https://mitapro.jp/" style="color:white;">MITAPRO</a>
+          , PCClub {{ new Date().getFullYear() }}</span
+        >
       </div>
     </v-footer>
 
@@ -109,6 +114,10 @@ export default {
           title: "Short",
           path: "/category/2",
           icon: "mdi-video-vintage"
+        },
+        {
+          title: "MITAPRO",
+          path: "/toMITAPRO"
         }
       ],
       is_transparent: "black"
