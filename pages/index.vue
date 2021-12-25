@@ -6,8 +6,17 @@
       headlineTitle="My Votes"
       :videos="votedvideos"
     />
-    <VideoSwiper headlineTitle="Tekitou" :videos="allvideos" />
-    <VideoSwiper headlineTitle="Tekitou2" :videos="allvideos" />
+    <VideoSwiper
+      v-if="popularvideos"
+      headlineTitle="Popular Choice (By Vote)"
+      :videos="popularvideos"
+    />
+
+    <VideoSwiper headlineTitle="映画部門" :videos="filmvideos" />
+    <VideoSwiper
+      headlineTitle="ショートムービー・その他部門"
+      :videos="shortvideos"
+    />
   </div>
 </template>
 <script>
@@ -16,12 +25,16 @@ export default {
     return {
       lighthousealert: false,
       allvideos: "",
-      votedvideos: ""
+      votedvideos: "",
+      popularvideos: "",
+      filmvideos: "",
+      shortvideos: ""
     };
   },
   mounted() {
     this.getFilms();
     this.getVoted();
+    this.getCate();
     //console.log(process.env.currentenv);
   },
   activated() {
@@ -46,6 +59,22 @@ export default {
     async getVoted() {
       const user = await this.$strapi.findOne("users", this.$strapi.user.id);
       this.votedvideos = user.votedvideos;
+    },
+    async getPopular() {
+      const videos = await this.$strapi.find("videos", {
+        _sort: "votedusers:ASC"
+      });
+      this.popularvideos = videos;
+    },
+    async getCate() {
+      var pts = await this.$strapi.find("videos", {
+        videocategory: 1
+      });
+      var pta = await this.$strapi.find("videos", {
+        videocategory: 2
+      });
+      this.filmvideos = pts;
+      this.shortvideos = pta;
     }
   },
   head() {
