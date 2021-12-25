@@ -119,6 +119,15 @@ export default {
   //Google Analytics用
   "google-gtag": {
     id: "G-GXB6HHSZQM",
+    config: {
+      linker: {
+        domains: [
+          "film.mitapro.jp",
+          "status.mitapro.jp",
+          "mitapro-film.pages.dev"
+        ]
+      }
+    },
     debug: true // Enable to track in dev mode.
   },
   //Sentryの設定
