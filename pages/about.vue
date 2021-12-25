@@ -15,5 +15,9 @@
     審査員: 五十嵐先生、宮島さん、山本凜さん、蔭島獅門シャキルさん<br />
     <h2 class="pt-3">スケジュール</h2>
     <v-img src="/times.png" width="50vw" />
+    <h2 class="pt-3">推奨環境</h2>
+    このサイトは、Full
+    HDディスプレイ・Windows/Mac/Linux版Firefox、Chrome、Safari、Edgeの最新バージョンでの閲覧をおすすめしています。<br />
+    iPadやスマホ等でも閲覧は可能ですが、一部レイアウトが崩れて表示される場合があります。あらかじめご了承ください。<br />
   </v-container>
 </template>
