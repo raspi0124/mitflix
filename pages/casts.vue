@@ -11,14 +11,14 @@
       <div class="name">J3 Risa Suzuki</div>
       <div class="job">企画</div>
       <div class="name">S2 Ui Yuki</div>
+      <div class="name">J3 Minori Saishoji</div>
       <div class="name">J2 Kaoru Nishihata</div>
       <div class="name">Airi Mizuno</div>
       <div class="name">Harutaka Ominato</div>
-      <div class="name">Minori Saishoji</div>
       <div class="name">Shoma Yamada</div>
       <div class="name">Yuki Takahashi</div>
       <div class="name">せがあ</div>
-      <div class="job">後で入れる (顧問かな)</div>
+      <div class="job">何か</div>
       <div class="name">S2 Kai Chiba</div>
       <div class="job">主催</div>
       <div class="name">MITAPRO</div>
@@ -124,7 +124,7 @@ export default {
   }
 
   100% {
-    top: -330%;
+    top: -351%;
   }
 }
 </style>
