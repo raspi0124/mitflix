@@ -26,8 +26,11 @@
       <div class="name">Hiroshi Miyajima</div>
       <div class="name">大野先生</div>
       <div class="name">S3 Yuma Ohashi</div>
+      <div class="name">S2 Rico Hamada</div>
       <div class="name">コンピュータ部</div>
       <div class="name">MIS歌謡祭</div>
+      <div class="name">野田先生</div>
+
       <div style="padding-top:128px !important;">
         <v-img
           class="center"
