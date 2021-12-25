@@ -77,6 +77,8 @@
       <nuxt-link to="/casts" class="pl-3" style="color:white;">Casts</nuxt-link>
       <a
         href="https://forms.gle/ZJPBoYdEnXmBJV5p9"
+        target="_blank"
+        rel="noopener noreferrer"
         class="pl-3"
         style="color:white;"
         >映画祭に応募する(12/31まで)</a
