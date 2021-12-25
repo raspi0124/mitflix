@@ -41,7 +41,7 @@
                       >
                         <div>
                           <v-btn :to="'/play/' + video.id">
-                            <v-icon>mdi-play</v-icon> Play</v-btn
+                            <v-icon>mdi-play</v-icon> 再生</v-btn
                           >
                           <v-btn
                             v-if="!voted"
@@ -51,7 +51,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="votevideo()"
-                            ><v-icon>mdi-vote</v-icon>Vote</v-btn
+                            ><v-icon>mdi-vote</v-icon>投票</v-btn
                           >
                           <v-btn
                             v-if="voted && !votedclicked"
@@ -61,7 +61,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="votedclick()"
-                            ><v-icon>mdi-check</v-icon>Voted</v-btn
+                            ><v-icon>mdi-check</v-icon>投票済み</v-btn
                           >
                           <v-btn
                             v-if="voted && votedclicked"
@@ -72,7 +72,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="removevote()"
-                            ><v-icon>mdi-delete</v-icon>Withdraw</v-btn
+                            ><v-icon>mdi-delete</v-icon>投票を撤回</v-btn
                           >
                         </div>
                       </v-col>
@@ -82,7 +82,7 @@
                       >
                         <v-container class="mt-5 center">
                           <v-btn :to="'/play/' + video.id"
-                            ><v-icon>mdi-play</v-icon> Play</v-btn
+                            ><v-icon>mdi-play</v-icon> 再生</v-btn
                           >
                           <v-btn
                             v-if="!voted"
@@ -92,7 +92,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="votevideo()"
-                            ><v-icon>mdi-vote</v-icon>Vote</v-btn
+                            ><v-icon>mdi-vote</v-icon>投票</v-btn
                           >
                           <v-btn
                             v-if="voted && !votedclick"
@@ -102,7 +102,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="votedclick()"
-                            ><v-icon>mdi-check</v-icon>Voted</v-btn
+                            ><v-icon>mdi-check</v-icon>投票済み</v-btn
                           >
                           <v-btn
                             v-if="voted && votedclick"
@@ -112,7 +112,7 @@
                               voteloading || voteclosed || !$strapi.user
                             "
                             @click="removevote()"
-                            ><v-icon>mdi-delete</v-icon>Withdraw</v-btn
+                            ><v-icon>mdi-delete</v-icon>投票を撤回</v-btn
                           >
                         </v-container>
                       </v-col>

@@ -13,7 +13,7 @@
       >
         <v-icon>mdi-information-outline</v-icon
         ><v-expand-x-transition>
-          <span v-if="hover" class="ml-2">Detail</span>
+          <span v-if="hover" class="ml-2">詳細</span>
         </v-expand-x-transition>
       </v-btn></v-hover
     >
@@ -31,7 +31,7 @@
       >
         <v-icon>mdi-vote</v-icon
         ><v-expand-x-transition>
-          <span v-if="hover" class="ml-2">Vote</span>
+          <span v-if="hover" class="ml-2">投票</span>
         </v-expand-x-transition>
       </v-btn></v-hover
     >
@@ -49,7 +49,7 @@
       >
         <v-icon>mdi-check</v-icon
         ><v-expand-x-transition>
-          <span v-if="hover" class="ml-2">Voted</span>
+          <span v-if="hover" class="ml-2">投票済み</span>
         </v-expand-x-transition>
       </v-btn></v-hover
     >

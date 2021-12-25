@@ -50,11 +50,11 @@
                 >
                   <div>
                     <v-btn :to="'/play/' + film.id">
-                      <v-icon>mdi-play</v-icon> Play</v-btn
+                      <v-icon>mdi-play</v-icon> 再生</v-btn
                     >
                     <v-btn class="ml-3" :to="'/film/' + film.id"
                       ><v-icon class="pr-1">mdi-information-outline</v-icon
-                      >Detail</v-btn
+                      >詳細</v-btn
                     >
                   </div>
                 </v-col>
@@ -64,10 +64,10 @@
                 >
                   <v-container class="mt-5 center">
                     <v-btn :to="'/play/' + film.id"
-                      ><v-icon>mdi-play</v-icon> Play</v-btn
+                      ><v-icon>mdi-play</v-icon> 再生</v-btn
                     >
                     <v-btn class="center" :to="'/film/' + film.id"
-                      ><v-icon>mdi-information-outline</v-icon>Detail</v-btn
+                      ><v-icon>mdi-information-outline</v-icon>詳細</v-btn
                     >
                   </v-container>
                 </v-col>
