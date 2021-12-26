@@ -25,7 +25,6 @@ export default {
       for (var key in allvideos) {
         const video = allvideos[key];
         var ordernum = video.votedusers.length;
-        console.log("VIDEOID" + video.id + "ordernum: " + ordernum);
         allvideos[key].ordernum = ordernum;
       }
       allvideos.sort(function(a, b) {
