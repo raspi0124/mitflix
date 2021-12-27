@@ -24,13 +24,15 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "preconnect", href: "https://film.mitapro.jp" },
-      { rel: "preconnect", href: "https://storage.googleapis.com" }
-      /*{
-        rel: "Stylesheet",
+      { rel: "preconnect", href: "https://storage.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com" },
+      { rel: "preconnect", href: "https://cdn.jsdelivr.net/" },
+      {
+        rel: "stylesheet",
         href:
-          "https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css",
+          "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap",
         defer: true
-      }*/
+      }
     ]
   },
 
@@ -161,7 +163,7 @@ export default {
     customVariables: ["~/assets/variables.scss"],
     treeShake: true,
     defaultAssets: {
-      family: false,
+      family: "Noto Sans JP",
       icons: "mdi"
     },
     theme: {
