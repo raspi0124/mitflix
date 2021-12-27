@@ -4,7 +4,7 @@
       <div class="movie">MITAPRO映画祭</div>
       <div class="job">統括プロデューサー</div>
       <div class="name">J2 Shoya Murakami</div>
-      <div class="job">開発</div>
+      <div class="job">開発/企画</div>
       <div class="name">S3 Junsei Miyazawa</div>
       <div class="job">企画/CM制作</div>
       <div class="name">S2 Kanata Nomura</div>
