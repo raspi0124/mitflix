@@ -1,5 +1,5 @@
 <template>
-  <div id="snowfall" />
+  <div v-if="$vuetify.breakpoint.lgAndUp" id="snowfall" />
 </template>
 
 <script>
