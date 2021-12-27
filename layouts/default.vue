@@ -69,7 +69,6 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-main>
-      <SnowFall />
       <!--pages以下の内容を表示 keep-aliveで直近16ページ分までキャッシュ-->
       <nuxt keep-alive :keep-alive-props="{ max: 16 }" />
     </v-main>
