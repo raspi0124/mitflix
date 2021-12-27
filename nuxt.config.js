@@ -42,7 +42,8 @@ export default {
     { src: "~plugins/axios.js" },
     { src: "~plugins/sentry-plus.js" },
     { src: "~plugins/strapi.js" },
-    { src: "~plugins/vue-plyr.js", ssr: false }
+    { src: "~plugins/vue-plyr.js", ssr: false },
+    { src: "~plugins/particles.js", ssr: false }
 
     /*{
       src: "~plugins/ga.js",
