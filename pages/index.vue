@@ -53,6 +53,16 @@ export default {
         this.lighthousealert = true;
       }
     },
+    shuffle(sourceArray) {
+      for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+      }
+      return sourceArray;
+    },
     async getFilms() {
       var pts = await this.$strapi.find("videos");
       this.allvideos = pts;
@@ -60,12 +70,6 @@ export default {
     async getVoted() {
       const user = await this.$strapi.findOne("users", this.$strapi.user.id);
       this.votedvideos = user.votedvideos;
-    },
-    async getPopular() {
-      const videos = await this.$strapi.find("videos", {
-        _sort: "votedusers:ASC"
-      });
-      this.popularvideos = videos;
     },
     async getCate() {
       var pts = await this.$strapi.find("videos", {
@@ -77,8 +81,8 @@ export default {
       var ptb = await this.$strapi.find("videos", {
         videocategory: 3
       });
-      this.filmvideos = pts;
-      this.shortvideos = pta;
+      this.filmvideos = this.shuffle(pts);
+      this.shortvideos = this.shuffle(pta);
       this.cmvideos = ptb;
     }
   },
