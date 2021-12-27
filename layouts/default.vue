@@ -3,6 +3,7 @@
     <v-navigation-drawer
       v-if="$vuetify.breakpoint.smAndDown"
       v-model="sidebar"
+      class="nav"
       right
       app
     >
@@ -30,7 +31,7 @@
           alt="MITAPro映画祭"
         />
       </nuxt-link>
-      <v-toolbar-items class="hidden-xs-only">
+      <v-toolbar-items class="hidden-xs-only nav">
         <v-btn
           small
           text

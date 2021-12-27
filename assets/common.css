@@ -189,3 +189,7 @@ img {
     rgba(0, 212, 255, 0) 100%
   );
 }
+
+.nav {
+  font-family: "Roboto", sans-serif;
+}
