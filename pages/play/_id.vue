@@ -1,6 +1,38 @@
 <template>
   <div v-if="video">
-    <VideoPlayer style="height:90vh" :video="video" />
+    <div class="text-center center">
+      <v-dialog v-model="dialog" width="500">
+        <v-card>
+          <v-card-title class="text-h5">
+            この動画はいかがでしたか?
+          </v-card-title>
+          <v-card-text>
+            もしこの動画を少しでもいいな、と思ったらぜひぜひ投票をお願いします!
+            投票は何動画でも可能です。
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              v-if="!voted"
+              color="white"
+              dark
+              text
+              :loading="voteloading"
+              :disabled="voteloading || voteclosed || !$strapi.user"
+              @click="votevideo()"
+            >
+              <v-icon>mdi-vote</v-icon>
+              投票
+            </v-btn>
+            <v-btn v-else color="white" text to="/" @click="dialog = false">
+              閉じる
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+    <VideoPlayer @ended="ended" style="height:90vh" :video="video" />
     <v-hover v-slot:default="{ hover }" open-delay="200"
       ><v-btn
         style="margin-bottom:47vh"
@@ -100,6 +132,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      dialog: false,
       video: null,
       iserror: false,
       //ここから投票関連
@@ -110,11 +143,9 @@ export default {
     };
   },
   methods: {
-    setVideo: function(detail) {
-      if (detail.status !== 200) {
-        this.iserror = true;
-      } else {
-        this.video = detail.data;
+    ended() {
+      if (!this.voted) {
+        this.dialog = true;
       }
     },
     async getVideo(id) {
