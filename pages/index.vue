@@ -63,9 +63,30 @@ export default {
       }
       return sourceArray;
     },
+    getPopular() {
+      this.popularvideos = this.allvideos;
+      this.popularvideos = this.orderByVoteCount(this.popularvideos);
+      this.giveRank(this.popularvideos);
+    },
+    orderByVoteCount(allvideos) {
+      for (var key in allvideos) {
+        const video = allvideos[key];
+        var ordernum = video.votedusers.length;
+        allvideos[key].ordernum = ordernum;
+      }
+      allvideos.sort(function(a, b) {
+        if (a.ordernum > b.ordernum) return -1;
+        if (a.ordernum < b.ordernum) return 1;
+        return 0;
+      });
+      //ソート処理は何度も繰り返すと重くなるのでorderedにキャッシュしておく
+      this.ordered = allvideos;
+      return allvideos;
+    },
     async getFilms() {
       var pts = await this.$strapi.find("videos");
       this.allvideos = pts;
+      this.getPopular();
     },
     async getVoted() {
       const user = await this.$strapi.findOne("users", this.$strapi.user.id);
