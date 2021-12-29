@@ -62,11 +62,6 @@ export default {
       });
     }
   },
-  beforeRouteLeave(to, from, next) {
-    this.paused();
-    // next()は必ず呼び出さないといけない
-    next();
-  },
   mounted() {
     this.$refs.plyr.player.on("pause", () => this.paused());
     this.$refs.plyr.player.on("ended", () => this.ended());
