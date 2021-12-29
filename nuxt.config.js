@@ -26,13 +26,7 @@ export default {
       { rel: "preconnect", href: "https://film.mitapro.jp" },
       { rel: "preconnect", href: "https://storage.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
-      { rel: "preconnect", href: "https://cdn.jsdelivr.net/" },
-      {
-        rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap",
-        defer: true
-      }
+      { rel: "preconnect", href: "https://cdn.jsdelivr.net/" }
     ]
   },
 
