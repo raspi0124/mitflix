@@ -66,7 +66,7 @@ export default {
     getPopular() {
       this.popularvideos = this.allvideos;
       this.popularvideos = this.orderByVoteCount(this.popularvideos);
-      this.giveRank(this.popularvideos);
+      //this.giveRank(this.popularvideos);
     },
     orderByVoteCount(allvideos) {
       for (var key in allvideos) {
