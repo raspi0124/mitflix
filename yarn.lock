@@ -1511,10 +1511,10 @@
     consola "^2.15.3"
     lodash.mergewith "^4.6.2"
 
-"@nuxtjs/strapi@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-0.3.4.tgz#77c55b43afd58f71e38549f2e05162338ae32387"
-  integrity sha512-vZBa1WLirgS1ew7Ye2rd4gfm1Cd95WLJrwFuyDEUbO3MdxUzJdfkrrXW5XLCDM/p8OPniXPldZS797X8j+FhVQ==
+"@nuxtjs/strapi@^0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-0.3.5.tgz#6e4f09e34bd950142bfd31d9d60315fdc5319049"
+  integrity sha512-38dST0BnLK/r4x/NUeLkx+qsTuVg9smVS1syup8OivPXgt6JSD3EkwXR5LNsl4Lk/kmHHj8Qv2aQlA5OKHdE8w==
   dependencies:
     "@nuxt/http" "^0.6.4"
     cookie-universal-nuxt "^2.1.4"
