@@ -39,7 +39,7 @@
               <v-row style="height:25%">
                 <v-col>
                   <div class=" align-center justify-center">
-                    {{ film.summary }}
+                    {{ summaryreducted(film.summary) }}
                   </div>
                 </v-col>
               </v-row>
@@ -107,6 +107,13 @@ export default {
         sourceArray[i] = temp;
       }
       return sourceArray;
+    },
+    summaryreducted(summary) {
+      if (summary.length > 290) {
+        return summary.substring(0, 290) + "...";
+      } else {
+        return summary;
+      }
     }
   },
   mounted() {

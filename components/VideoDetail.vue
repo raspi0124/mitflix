@@ -124,7 +124,7 @@
             </v-row>
           </v-img>
           <!--左側カラム-->
-          <v-row no-gutters>
+          <v-row>
             <v-col
               cols="12"
               xs="12"
@@ -142,8 +142,6 @@
                 <div style="padding-top:20px; padding-bottom:20px;">
                   {{ video.casts }}
                 </div>
-                <h2>このカテゴリの映画</h2>
-                <VideoSwiper :videos="categoryvideos"></VideoSwiper>
               </v-card-text>
             </v-col>
             <!--右側カラム-->
@@ -178,7 +176,13 @@
               </v-card>
             </v-col>
           </v-row>
+          <VideoSwiper
+            class="pl-8"
+            headlineTitle="このカテゴリの動画"
+            :videos="categoryvideos"
+          ></VideoSwiper>
         </v-card>
+
         <!--ローディング中のプレースホルダ-->
         <div v-else>
           <v-skeleton-loader

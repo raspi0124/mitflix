@@ -39,7 +39,7 @@
               <v-row style="height:25%">
                 <v-col>
                   <div class=" align-center justify-center">
-                    {{ film.summary }}
+                    {{ summaryreducted(film.summary) }}
                   </div>
                 </v-col>
               </v-row>
@@ -86,6 +86,15 @@ export default {
     return {
       currtime: 0
     };
+  },
+  methods: {
+    summaryreducted(summary) {
+      if (summary.length > 300) {
+        return summary.substring(0, 300) + "...";
+      } else {
+        return summary;
+      }
+    }
   },
   props: ["films"]
 };
