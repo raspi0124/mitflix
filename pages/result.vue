@@ -1,8 +1,8 @@
 <template>
-  <v-app>
-    <h1>結果</h1>
+  <v-container>
+    <h1>Results</h1>
     Coming Soon...?
-  </v-app>
+  </v-container>
 </template>
 
 <script>
