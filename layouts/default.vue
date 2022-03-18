@@ -19,7 +19,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app style="background-color: rgba(0,0,0,0.5);">
+    <v-app-bar app style="background-color: rgba(0,0,0,1); z-index:1000;">
       <nuxt-link
         to="/"
         tag="span"
@@ -76,14 +76,6 @@
     <v-footer absolute app>
       <nuxt-link to="/about" style="color:white;">About</nuxt-link>
       <nuxt-link to="/casts" class="pl-3" style="color:white;">Casts</nuxt-link>
-      <a
-        href="https://forms.gle/ZJPBoYdEnXmBJV5p9"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="pl-3"
-        style="color:white;"
-        >映画祭に応募する(12/31まで)</a
-      >
       <v-spacer></v-spacer>
       <div class="hidden-sm-and-down">
         👨‍✈️🛫📽 by Shoya.M, ✍️🛠️ by Junsei.M

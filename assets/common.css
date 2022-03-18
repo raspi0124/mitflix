@@ -193,3 +193,33 @@ img {
 .nav {
   font-family: "Roboto", sans-serif;
 }
+
+.strokedtext {
+  color: #000;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #fff;
+  margin: 0;
+}
+
+.extcenterh2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  text-align: center;
+}
+
+.extcenterh2::before,
+.extcenterh2::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  background-color: #e3bf00;
+}
+
+.extcenterh2::before {
+  margin-right: 20px;
+}
+.extcenterh2::after {
+  margin-left: 20px;
+}
